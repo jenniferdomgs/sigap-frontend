@@ -7,9 +7,13 @@ const Login = () => {
     <div className="container">
         <h2>Inicie uma Sessão:</h2>
         <form>
-            <label className="label">CPF: *</label>
+            <label className="label">
+              CPF: <span className="required">*</span>
+            </label>
             <input type="text" placeholder="XXXXXXXXXXX" />
-            <label className="label">Senha: *</label>
+            <label>
+              Senha: <span className='required'>*</span>
+            </label>
             <input type="password" placeholder="********" />
             <button type="submit">Entrar <i className="fa-solid fa-sign-in-alt"></i></button>
         </form>
