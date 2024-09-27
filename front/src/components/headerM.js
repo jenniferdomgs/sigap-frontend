@@ -4,7 +4,7 @@ import '../assets/css/headerM.css';
 
 const HeaderMain = () => {
   return (
-    <header>
+    <div className='header-main'>
       <div className='logo'>
         <img src={logo} alt="Logo DTIC" /> 
           <div className='title'>
@@ -16,7 +16,7 @@ const HeaderMain = () => {
         <button><i class="fa-solid fa-caret-down"></i></button>
         <button><i class="fa-solid fa-right-from-bracket"></i></button>
       </div>
-    </header>
+    </div>
   );
 };
 
