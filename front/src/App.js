@@ -19,7 +19,7 @@ function App() {
               </>
             }
           />
-          <Route
+          <Route //configurar sessão
             path="/principal"
             element={
               <>
