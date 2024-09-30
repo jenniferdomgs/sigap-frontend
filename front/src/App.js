@@ -1,10 +1,36 @@
-import '../src/assets/css/App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from '../src/views/login';
+import Main from '../src/views/main';
+import HeaderLogin from '../src/components/headerL';
+import HeaderMain from '../src/components/headerM';
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <HeaderLogin />
+                <Login />
+              </>
+            }
+          />
+          <Route //configurar sessão
+            path="/principal"
+            element={
+              <>
+                <HeaderMain />
+                <Main />
+              </>
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
