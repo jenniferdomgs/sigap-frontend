@@ -8,11 +8,11 @@ import CardImprimir from '../components/CardImprimir';
 const Main = () => {
   return (
     <div className={styles['container-principal']}>
-      <div className={styles['card-container.top']}>
+      <div className={styles['card-container top']}>
         <CardConsulta />
         <CardCadastrarArma />
       </div>
-      <div className={styles['card-container']}>
+      <div className={styles['card-container bottom']}>
         <CardImprimir />
       </div>
     </div>
