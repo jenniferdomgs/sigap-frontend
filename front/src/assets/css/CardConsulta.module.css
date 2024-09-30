@@ -1,0 +1,40 @@
+.card-consulta {
+    background-color: #f3f3f3;
+    border-radius: 15px;
+    padding: 10px;
+    width: 300px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.card-consulta:hover {
+    transform: scale(1.05);
+}
+
+.card-consulta h3 {
+    color: black;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-consulta h4 {
+    color: #4f4f4f;
+    font-size: 0.9rem;
+}
+
+.card-consulta p {
+    text-align: end;
+    font-size: 0.85rem;
+    color: #333;
+    cursor: pointer;
+}
+
+.card-consulta i {
+    font-size: 1.5rem;
+}

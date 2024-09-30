@@ -1,0 +1,30 @@
+.container-principal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    margin-top: 5%;
+    min-height: 80vh;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.card-container.top {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .card-container.top {
+        flex-direction: column;
+        align-items: center;
+    }
+}
