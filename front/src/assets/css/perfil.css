@@ -1,0 +1,123 @@
+.container-prop {
+    background-color: #0c154d;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    box-sizing: border-box;
+}
+
+
+.header-table {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #3c4f8a;
+    margin-bottom: 20px;
+}
+
+.header-table h4 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.header-table i {
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+}
+
+
+.dadosP {
+    display: flex;
+    justify-content: space-between;
+    background-color: #e0e0e0;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.dadosP .coluna {
+    flex: 1;
+}
+
+.perfil-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.perfil {
+    width: 80px;
+    height: 80px;
+}
+
+.status {
+    margin-top: 10px;
+    font-size: 14px;
+    color: green;
+}
+
+
+.armas-cadastradas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.armas-cadastradas table {
+    width: 75%;
+    border-collapse: collapse;
+}
+
+.armas-cadastradas th, .armas-cadastradas td {
+    padding: 10px;
+    text-align: center;
+}
+
+.armas-cadastradas th {
+    color: black;
+}
+
+.armas-cadastradas td {
+    color: #1e1e1ebb;
+}
+
+
+.acao-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.acao-btn button {
+    background-color: transparent;
+    color: #0c154d;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.acao-btn button i {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #0c154d;
+}
+
+.acao-btn button:hover {
+    color: #3c4f8a;
+}
