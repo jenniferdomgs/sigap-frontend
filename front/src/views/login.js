@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../assets/css/login.css'
 import '../assets/fonts/fontawesome/css/all.min.css'
+import axios from "axios"
+import jtw from 'jsonwebtoken'; // biblioteca para mandar os dados em jwt para o backend
 
 const Login = () => {
+
+  useEffect (() => {
+    axios.get('http://localhost:3000/sigap/api/')
+    .then(response => setCredenciais(responde.data))
+    .catch(error => console.error('Credenciais Incorretas!', error));
+  }, []);
+
+
   return (
     <div className="container">
         <h2>Inicie uma Sessão:</h2>

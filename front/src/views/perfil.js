@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../assets/css/perfil.css';
 import '../assets/fonts/fontawesome/css/all.min.css';
+import axios from 'axios';
+import jtw from 'jsonwebtoken'; // biblioteca para mandar os dados em jwt para o backend
+
 
 const Perfil = () => {
+
+    useEffect(() => {
+        axios.get('http://localhost:3000/sigap/api/')
+            .then(response => setDados(response.data))
+            .catch(error => console.error('Erro ao buscar os dados', error));
+    }, []);
+
     return (
         <div className='container-prop'>
          
@@ -13,17 +23,17 @@ const Perfil = () => {
 
             <div className='dadosP'>
                 <div className='coluna'>
-                    <p><strong>Nome:</strong></p>
-                    <p><strong>CPF:</strong></p>
-                    <p><strong>Telefone:</strong></p>
+                    <p><strong>Nome:</strong>{Dados.st_nome}</p>
+                    <p><strong>CPF:</strong>{Dados.st_cpf}</p>
+                    <p><strong>Telefone:</strong>{Dados.st_telefonecelular}</p>
                 </div>
                 <div className='coluna'>
-                    <p><strong>Identidade:</strong></p>
-                    <p><strong>Email:</strong></p>
+                    <p><strong>Posto/Graduação:</strong>{Dados.st_postograduacao}</p>
+                    <p><strong>Email:</strong>{Dados.st_email}</p>
                 </div>
                 <div className='coluna perfil-section'>
                     <img className='perfil' src='path_to_profile_picture' alt='foto 3x4' />
-                    <p className='status'><strong>Status:</strong> Ativo</p>
+                    <p className='status'><strong>Status:</strong>{Dados.st_status}</p>
                 </div>
             </div>
 

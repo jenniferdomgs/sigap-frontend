@@ -4,7 +4,7 @@ import '../assets/fonts/fontawesome/css/all.min.css';
 import axios from "axios";
 import jtw from 'jsonwebtoken'; // biblioteca para mandar os dados em jwt para o backend
 
-const SolicitarC = () => { 
+const SolicitarCRAF = () => { 
     const [activeTab, setActiveTab] = useState('Orientações');
     const [dadosPessoais, setDadosPessoais] = useState({
         
@@ -21,7 +21,7 @@ const SolicitarC = () => {
     return (
         <div>
             <div className="containerSolicitar">
-                <h2>SOLICITAR AUTORIZAÇÃO DE COMPRA</h2>
+                <h2>SOLICITAR CRAF</h2>
                 <div className="tab-container">
                     <div className="tabs">
                         <button 
@@ -87,4 +87,4 @@ const SolicitarC = () => {
     );
 };
 
-export default SolicitarC;
+export default SolicitarCRAF;
