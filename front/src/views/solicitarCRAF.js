@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import '../assets/css/solicitarC.css';
 import '../assets/fonts/fontawesome/css/all.min.css';
 import axios from "axios";
-import jtw from 'jsonwebtoken'; // biblioteca para mandar os dados em jwt para o backend
+import jwt from 'jsonwebtoken'; 
 
 const SolicitarCRAF = () => { 
     const [activeTab, setActiveTab] = useState('Orientações');

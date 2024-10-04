@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import '../assets/css/login.css'
 import '../assets/fonts/fontawesome/css/all.min.css'
 import axios from "axios"
-import jtw from 'jsonwebtoken'; // biblioteca para mandar os dados em jwt para o backend
+import jwt from 'jsonwebtoken'; 
 
 const Login = () => {
 
