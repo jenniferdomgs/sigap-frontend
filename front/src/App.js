@@ -6,12 +6,14 @@ import HeaderLogin from '../src/components/headerL';
 import HeaderMain from '../src/components/headerM';
 import SolicitarC from '../src/views/solicitarC';
 import Perfil from '../src/views/perfil';
+import SolicitarCRAF from '../src/views/solicitarCRAF';
+
 
 function App() {
   return (
     <Router>
       <div>
-        <Routes>
+        <Routes> AUTORIZAÇÃO DE COMPRA
           <Route
             path="/"
             element={
@@ -45,6 +47,15 @@ function App() {
               <>
                 <HeaderMain />
                 <Perfil />
+              </>
+            }
+          />
+          <Route
+            path='/SolicitarCRAF'
+            element={
+              <>
+              <HeaderMain />
+              <SolicitarCRAF />
               </>
             }
           />
