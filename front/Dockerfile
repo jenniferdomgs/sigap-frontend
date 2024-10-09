@@ -2,10 +2,10 @@
 FROM node:18-alpine
 
 # Define o diretório de trabalho dentro do container
-WORKDIR /app
+WORKDIR /urs/src/app
 
 # Copia o arquivo de dependências para o container
-COPY package.json ./
+COPY package*.json ./
 
 # Instala as dependências
 RUN npm install
