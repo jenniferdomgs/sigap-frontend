@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import '../assets/css/login.css';
 import '../assets/fonts/fontawesome/css/all.min.css';
 import axios from 'axios';
-import KJUR from 'jsrsasign';
 
 const Login = () => {
   const [cpf, setCpf] = useState('');

@@ -8,14 +8,15 @@ const SolicitarC = () => {
     const [dadosPessoais, setDadosPessoais] = useState({});
 
     useEffect(() => {
-        const token = localStorage.getItem('jwtToken'); //pegando o jwt guardado no localStorage
-
+        const token = localStorage.getItem('jwtToken');
+    
         axios.get('http://localhost:3000/sigap/api/', {
             headers: {
-                Authorization: `Bearer ${token}` // add jwt no cabeçalho da requisição
+                Authorization: `Bearer ${token}`
             }
         })
         .then(response => {
+            console.log('Dados pessoais recebidos:', response.data); 
             setDadosPessoais(response.data);
         })
         .catch(error => console.error('Erro ao buscar dados pessoais:', error));
