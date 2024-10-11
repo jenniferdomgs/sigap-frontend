@@ -5,7 +5,7 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Copia o arquivo de dependências para o container
-COPY package.json ./
+COPY package*.json ./
 
 # Instala as dependências
 RUN npm install

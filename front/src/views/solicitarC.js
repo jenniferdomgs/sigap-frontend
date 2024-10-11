@@ -2,22 +2,25 @@ import React, { useState, useEffect } from "react";
 import '../assets/css/solicitarC.css';
 import '../assets/fonts/fontawesome/css/all.min.css';
 import axios from "axios";
-import jtw from 'jsonwebtoken'; // biblioteca para mandar os dados em jwt para o backend
 
 const SolicitarC = () => { 
     const [activeTab, setActiveTab] = useState('Orientações');
-    const [dadosPessoais, setDadosPessoais] = useState({
-        
-    });
+    const [dadosPessoais, setDadosPessoais] = useState({});
 
-    
-     useEffect(() => {
-         axios.get('http://localhost:3000/sigap/api/')
-             .then(response => setDadosPessoais(response.data))
-             .catch(error => console.error('Erro ao buscar dados pessoais:', error));
-     }, []);
+    useEffect(() => {
+        const token = localStorage.getItem('jwtToken'); //pegando o jwt guardado no localStorage
 
-    
+        axios.get('http://localhost:3000/sigap/api/', {
+            headers: {
+                Authorization: `Bearer ${token}` // add jwt no cabeçalho da requisição
+            }
+        })
+        .then(response => {
+            setDadosPessoais(response.data);
+        })
+        .catch(error => console.error('Erro ao buscar dados pessoais:', error));
+    }, []);
+
     return (
         <div>
             <div className="containerSolicitar">
@@ -62,12 +65,9 @@ const SolicitarC = () => {
                                         <p><strong>CPF:</strong> {dadosPessoais.st_cpf}</p>
                                         <p><strong>Matrícula:</strong> {dadosPessoais.st_matricula}</p>
                                         <p><strong>Email:</strong> {dadosPessoais.st_email}</p>
-
                                         <p><strong>Telefone:</strong> {dadosPessoais.st_telefonecelular}</p>
                                     </div>
                                 </div>
-
-                                
                             </div>
                         )}
                         
