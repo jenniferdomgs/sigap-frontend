@@ -3,6 +3,8 @@ import '../assets/css/login.css';
 import '../assets/fonts/fontawesome/css/all.min.css';
 import axios from 'axios';
 
+const KJUR = require('jsrsasign');
+
 const Login = () => {
   const [cpf, setCpf] = useState('');
   const [senha, setSenha] = useState('');
@@ -33,9 +35,15 @@ const Login = () => {
     const token = KJUR.jws.JWS.sign('HS256', sHeader, sPayload, secretKey);
 
     // enviando para o backend
-    axios.post('http://localhost:3000/sigap/api/login', { token: token })
+    const headers = {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    } 
+    axios.post('http://localhost:3000/sigap/api/login', {},headers)
       .then(response => {
         console.log('Login bem-sucedido:', response.data);
+
       })
       .catch(error => {
         console.error('Erro ao fazer login:', error);

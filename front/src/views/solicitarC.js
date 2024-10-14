@@ -10,7 +10,7 @@ const SolicitarC = () => {
     useEffect(() => {
         const token = localStorage.getItem('jwtToken');
     
-        axios.get('http://localhost:3000/sigap/api/', {
+        axios.get('http://localhost:3000/sigap/api/dadosPolicial', {
             headers: {
                 Authorization: `Bearer ${token}`
             }
