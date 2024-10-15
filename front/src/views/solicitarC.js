@@ -2,11 +2,32 @@ import React, { useState, useEffect } from "react";
 import '../assets/css/solicitarC.css';
 import '../assets/fonts/fontawesome/css/all.min.css';
 import axios from "axios";
+<<<<<<< HEAD
+=======
 import jwt from 'jsonwebtoken'; 
+>>>>>>> main
 
 const SolicitarC = () => { 
     const [activeTab, setActiveTab] = useState('Orientações');
     const [dadosPessoais, setDadosPessoais] = useState({});
+<<<<<<< HEAD
+
+    useEffect(() => {
+        const token = localStorage.getItem('jwtToken');
+    
+        axios.get('http://localhost:3000/sigap/api/dadosPolicial', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        .then(response => {
+            console.log('Dados pessoais recebidos:', response.data); 
+            setDadosPessoais(response.data);
+        })
+        .catch(error => console.error('Erro ao buscar dados pessoais:', error));
+    }, []);
+
+=======
 
     useEffect(() => {
         axios.get('http://localhost:3000/sigap/api/')
@@ -39,6 +60,7 @@ const SolicitarC = () => {
         });
     };
 
+>>>>>>> main
     return (
         <div>
             <div className="containerSolicitar">
