@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import '../assets/css/login.css';
@@ -5,6 +6,13 @@ import '../assets/fonts/fontawesome/css/all.min.css';
 import axios from 'axios';
 
 const KJUR = require('jsrsasign');
+=======
+import React, { useEffect } from 'react';
+import '../assets/css/login.css'
+import '../assets/fonts/fontawesome/css/all.min.css'
+import axios from "axios"
+import jwt from 'jsonwebtoken'; 
+>>>>>>> main
 
 const Login = () => {
   const [cpf, setCpf] = useState('');
