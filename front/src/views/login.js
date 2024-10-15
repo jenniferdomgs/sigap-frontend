@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import '../assets/css/login.css';
 import '../assets/fonts/fontawesome/css/all.min.css';
 import axios from 'axios';
@@ -9,6 +10,7 @@ const Login = () => {
   const [cpf, setCpf] = useState('');
   const [senha, setSenha] = useState('');
   const [credenciais, setCredenciais] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get('http://localhost:3000/sigap/api/')
@@ -19,31 +21,29 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // dados pro token
     const payload = {
       cpf: cpf,
       senha: senha
     };
 
-    // cabeçalho e token
     const header = { alg: 'HS256', typ: 'JWT' };
     const secretKey = 'thesecretkey'; 
 
-    
     const sHeader = JSON.stringify(header);
     const sPayload = JSON.stringify(payload);
     const token = KJUR.jws.JWS.sign('HS256', sHeader, sPayload, secretKey);
 
-    // enviando para o backend
     const headers = {
       headers: {
         Authorization: `Bearer ${token}`
       }
-    } 
-    axios.post('http://localhost:3000/sigap/api/login', {},headers)
+    }; 
+
+    axios.post('http://localhost:3000/sigap/api/login', {}, headers)
       .then(response => {
         console.log('Login bem-sucedido:', response.data);
-
+        localStorage.setItem('token', token); // salvando o token no localstorage
+        navigate('/Principal'); 
       })
       .catch(error => {
         console.error('Erro ao fazer login:', error);
