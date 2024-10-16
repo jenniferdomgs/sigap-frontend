@@ -87,5 +87,6 @@ const SolicitarC = () => {
         </div>
     );
 };
-
+                         
 export default SolicitarC;
+
