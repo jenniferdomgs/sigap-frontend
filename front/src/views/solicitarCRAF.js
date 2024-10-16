@@ -2,30 +2,26 @@ import React, { useState, useEffect } from "react";
 import '../assets/css/solicitarC.css';
 import '../assets/fonts/fontawesome/css/all.min.css';
 import axios from "axios";
+import jwt from 'jsonwebtoken'; 
 
-const SolicitarC = () => { 
+const SolicitarCRAF = () => { 
     const [activeTab, setActiveTab] = useState('Orientações');
-    const [dadosPessoais, setDadosPessoais] = useState({});
+    const [dadosPessoais, setDadosPessoais] = useState({
+        
+    });
 
-    useEffect(() => {
-        const token = localStorage.getItem('jwtToken');
     
-        axios.get('http://localhost:3000/sigap/api/dadosPolicial', {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        })
-        .then(response => {
-            console.log('Dados pessoais recebidos:', response.data); 
-            setDadosPessoais(response.data);
-        })
-        .catch(error => console.error('Erro ao buscar dados pessoais:', error));
-    }, []);
+     useEffect(() => {
+         axios.get('http://localhost:3000/sigap/api/')
+             .then(response => setDadosPessoais(response.data))
+             .catch(error => console.error('Erro ao buscar dados pessoais:', error));
+     }, []);
 
+    
     return (
         <div>
             <div className="containerSolicitar">
-                <h2>SOLICITAR AUTORIZAÇÃO DE COMPRA</h2>
+                <h2>SOLICITAR CRAF</h2>
                 <div className="tab-container">
                     <div className="tabs">
                         <button 
@@ -66,9 +62,12 @@ const SolicitarC = () => {
                                         <p><strong>CPF:</strong> {dadosPessoais.st_cpf}</p>
                                         <p><strong>Matrícula:</strong> {dadosPessoais.st_matricula}</p>
                                         <p><strong>Email:</strong> {dadosPessoais.st_email}</p>
+
                                         <p><strong>Telefone:</strong> {dadosPessoais.st_telefonecelular}</p>
                                     </div>
                                 </div>
+
+                                
                             </div>
                         )}
                         
@@ -87,6 +86,5 @@ const SolicitarC = () => {
         </div>
     );
 };
-                         
-export default SolicitarC;
 
+export default SolicitarCRAF;
