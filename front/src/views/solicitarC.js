@@ -49,13 +49,41 @@ const SolicitarC = () => {
                             Anexar Documentos
                         </button>
                     </div>
-
+    
                     <div className="tab-content">
-                        {activeTab === 'Orientações' && <p>Conteúdo de Orientações</p>}
+                        {activeTab === 'Orientações' && (
+                            <div className="orientacoes">
+                                <h4>DOCUMENTOS NECESSÁRIOS PARA A AQUISIÇÃO DE MATERIAL BÉLICO DE USO PARTICULAR</h4>
+                                <ul>
+                                    <li>Requerimento para Aquisição de Material Bélico de Uso Particular preenchido e assinado;</li>
+                                    <li>(Anexo “C”) - Calibre Permitido ou (Anexo “C1”) - Calibre Restrito;</li>
+                                    <li>Cópia da identidade militar;</li>
+                                    <li>Cópia do comprovante de residência;</li>
+                                    <li>Laudo de aptidão psicológica apenas para inativos;</li>
+                                    <li>Declaração preenchida (Anexo “G” );</li>
+                                    <li>Comprovante de pagamento da Guia de Recolhimento da União – GRU;</li>
+                                    <li>Certidões negativas (Justiça Estadual, Justiça Federal e DJD);</li>
+                                </ul>
+                                <p><strong>[1]</strong> Acesse o site <a href="http://consulta.tesouro.fazenda.gov.br/gru_novosite/gru_simples.asp" target="_blank" rel="noopener noreferrer">consulta.tesouro.fazenda.gov.br</a> e preencha os campos indicados com as especificações:
+                                <ul>
+                                    <li>Unidade Gestora: 167086;</li>
+                                    <li> Gestão: 00001 - Tesouro Nacional; </li>
+                                    <li>Nome da Unidade: Fundo do Exército;</li>
+                                    <li>Código de Recolhimento: 11300-0 – Taxa Fisc. Produtos Controlados Exército;</li>
+                                    <li>Na página seguinte, Preencha:</li>
+                                        <ol>
+                                            <li>Número de referência: 20741; </li>
+                                            <li>Nome Completo;</li>
+                                            <li>CPF do Interessado;</li>
+                                            <li>Anexe o Comprovante do Pagamento *</li> ler portaria e entender onde estão os dados para o pagamento 
+                                        </ol>
+                                </ul>
+                                </p>
+                            </div>
+                        )}
                         
                         {activeTab === 'Dados Pessoais' && (
                             <div className="dados-pessoais">
-                                <h3>DADOS PESSOAIS</h3>
                                 <div className="dados-pessoais-section">
                                     <div className="dados-col">
                                         <p><strong>Nome:</strong> {dadosPessoais.st_nome}</p>
@@ -85,7 +113,7 @@ const SolicitarC = () => {
                 </div>
             </div>
         </div>
-    );
+    );    
 };
                          
 export default SolicitarC;

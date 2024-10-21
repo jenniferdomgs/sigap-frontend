@@ -43,7 +43,7 @@ const Login = () => {
       .then(response => {
         console.log('Login bem-sucedido:', response.data);
         localStorage.setItem('token', token); // salvando o token no localstorage
-        navigate('/Principal'); 
+        navigate('/SolicitarCompra'); 
       })
       .catch(error => {
         console.error('Erro ao fazer login:', error);

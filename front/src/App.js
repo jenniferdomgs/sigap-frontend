@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from '../src/views/login';
-import Main from '../src/views/main';
+import Main from './views/main';
 import HeaderLogin from '../src/components/headerL';
 import HeaderMain from '../src/components/headerM';
 import SolicitarC from '../src/views/solicitarC';
@@ -23,7 +23,7 @@ function App() {
             }
           />
           <Route 
-            path="/Principal"
+            path="/Principal" //existem 2 tipos de tela principal: add verificação
             element={
               <PrivateRoute element={
                 <>

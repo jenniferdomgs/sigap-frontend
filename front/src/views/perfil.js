@@ -7,7 +7,7 @@ import axios from 'axios';
 const Perfil = () => {
 
     useEffect(() => {
-        axios.get('http://localhost:3000/sigap/api/')
+        axios.get('http://localhost:3000/sigap/api/dadosPolicial')
             .then(response => setDados(response.data))
             .catch(error => console.error('Erro ao buscar os dados', error));
     }, []);
