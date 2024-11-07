@@ -11,17 +11,21 @@ const HeaderMain = () => {
     navigate('/'); 
   };
 
+  const handleUserClick = () => {
+    navigate('/Perfil'); 
+  };
+
   return (
     <div className='header-main'>
       <div className='logo'>
         <img src={logo} alt="Logo DTIC" /> 
-          <div className='title'>
-              <h3>SIGAP</h3>
-              <p>Sistema de Gerenciamento de Armas Particulares</p>
-          </div>
+        <div className='title'>
+          <h3>SIGAP</h3>
+          <p>Sistema de Gerenciamento de Armas Particulares</p>
+        </div>
       </div>
       <div className='nav'>
-        <button><i className="fa-solid fa-caret-down"></i></button>
+        <button onClick={handleUserClick}><i className="fa-solid fa-user"></i></button>
         <button onClick={handleLogout}><i className="fa-solid fa-right-from-bracket"></i></button>
       </div>
     </div>

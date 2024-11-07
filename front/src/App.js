@@ -7,6 +7,7 @@ import HeaderMain from '../src/components/headerM';
 import SolicitarC from '../src/views/solicitarC';
 import Perfil from '../src/views/perfil';
 import PrivateRoute from '../src/components/PrivateRoute';
+import SolicitarCRAF from '../src/views/solicitarCRAF'
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
             }
           />
           <Route 
-            path="/Principal" //existem 2 tipos de tela principal: add verificação
+            path="/Principal" //existem 2 tipos de tela principal: add verificação (quando db estiver pronto)
             element={
               <PrivateRoute element={
                 <>
@@ -40,6 +41,17 @@ function App() {
                 <>
                   <HeaderMain />
                   <SolicitarC />
+                </>
+              } />
+            }
+          />
+          <Route
+            path='/SolicitarCRAF'
+            element={
+              <PrivateRoute element={
+                <>
+                  <HeaderMain />
+                  <SolicitarCRAF />
                 </>
               } />
             }
