@@ -1,16 +1,18 @@
 import React from 'react';
-import styles from '../assets/css/cards.css';
+import styles from '../assets/css/cards.module.css';
 import { CardReceberCRAF, CardSlcCompra, CardSlcCRAF, CardSlcTransf } from './cards.js';
 
-const mainUSER = () => {
+const MainUSER = () => {
   return (
-    <div className={styles['user-grid']}>
-      <CardSlcCompra />
-      <CardSlcCRAF />
-      <CardReceberCRAF />
-      <CardSlcTransf />
+    <div className={styles['container-cards']}>
+      <div className={styles['cards-grid']}>
+        <CardSlcCompra />
+        <CardSlcCRAF />
+        <CardReceberCRAF />
+        <CardSlcTransf />
+      </div>
     </div>
   );
 };
 
-export default mainUSER;
+export default MainUSER;

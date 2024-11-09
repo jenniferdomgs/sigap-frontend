@@ -1,13 +1,13 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from '../assets/css/cards.css';
+import styles from '../assets/css/cards.module.css';
 
 const CardConsulta = () => {
   const navigate = useNavigate();
   const handleNavigate = () => navigate('/'); // add rota quando pronta
 
   return (
-    <div className={styles['card-consulta']}>
+    <div className={styles['card']}>
       <h3><i className="fa-solid fa-magnifying-glass"></i> Consultar</h3>
       <h4>Consultar por Proprietário, Arma ou Documento de Publicação.</h4>
       <button onClick={handleNavigate} className={styles['card-button']}>
@@ -22,7 +22,7 @@ const CardImprimir = () => {
   const handleNavigate = () => navigate('/'); // add rota quando pronta
 
   return (
-    <div className={styles['card-imprimir']}>
+    <div className={styles['card']}>
       <h3><i className="fa-solid fa-print"></i> Imprimir</h3>
       <h4>Imprimir CRAF ou relatórios do sistema.</h4>
       <button onClick={handleNavigate} className={styles['card-button']}>
@@ -37,7 +37,7 @@ const CardCadastrarArma = () => {
   const handleNavigate = () => navigate('/'); // add rota quando pronta
 
   return (
-    <div className={styles['card-cadastrar-arma']}>
+    <div className={styles['card']}>
       <h3><i className="fa-solid fa-pen-to-square"></i> Cadastrar Armamento</h3>
       <h4>Cadastrar novo armamento.</h4>
       <button onClick={handleNavigate} className={styles['card-button']}>
@@ -52,7 +52,7 @@ const CardReceberCRAF = () => {
   const handleNavigate = () => navigate('/receber-craf'); // add rota quando pronta
 
   return (
-    <div className={styles['card-receber-craf']}>
+    <div className={styles['card']}>
       <h3><i className="fa-solid fa-file"></i> Receber CRAF</h3>
       <h4>Receber Certificado de Registro de Arma de Fogo.</h4>
       <button onClick={handleNavigate} className={styles['card-button']}>
@@ -67,7 +67,7 @@ const CardSlcCompra = () => {
   const handleNavigate = () => navigate('/SolicitarCompra'); 
 
   return (
-    <div className={styles['card-solicitar-compra']}>
+    <div className={styles['card']}>
       <h3><i className="fa-solid fa-code-pull-request"></i> Solicitar Autorização de Compra</h3>
       <h4>Requerer autorização para a compra de armamento.</h4>
       <button onClick={handleNavigate} className={styles['card-button']}>
@@ -82,7 +82,7 @@ const CardSlcCRAF = () => {
   const handleNavigate = () => navigate('/SolicitarCRAF'); 
 
   return (
-    <div className={styles['card-solicitar-craf']}>
+    <div className={styles['card']}>
       <h3><i className="fa-solid fa-code-pull-request"></i> Solicitar CRAF</h3>
       <h4>Requerer Certificado e Registro de Arma de Fogo.</h4>
       <button onClick={handleNavigate} className={styles['card-button']}>
@@ -97,7 +97,7 @@ const CardSlcTransf = () => {
   const handleNavigate = () => navigate('/'); // add rota quando pronta
 
   return (
-    <div className={styles['card-solicitar-transferencia']}>
+    <div className={styles['card']}>
       <h3><i className="fa-solid fa-right-left"></i> Solicitar Transferência</h3>
       <h4>Transferir um armamento já vinculado.</h4>
       <button onClick={handleNavigate} className={styles['card-button']}>

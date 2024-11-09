@@ -51,7 +51,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container-login">
       <h2>Inicie uma Sessão:</h2>
       <form onSubmit={handleLogin}>
         <label className="label">
