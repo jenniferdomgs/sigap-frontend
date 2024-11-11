@@ -22,7 +22,6 @@ const Perfil = () => {
          
             <div className='header-table'>
                 <h4>Proprietário da Arma</h4>
-                <i className="fa-solid fa-pen-to-square"></i>
             </div>
 
             <div className='dadosP'>
