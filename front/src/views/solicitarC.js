@@ -3,14 +3,21 @@ import '../assets/css/solicitarC.css';
 import '../assets/fonts/fontawesome/css/all.min.css';
 import axios from "axios";
 
-const SolicitarC = () => { 
+const SolicitarC = () => {
     const [activeTab, setActiveTab] = useState('Orientações');
     const [dadosPessoais, setDadosPessoais] = useState({});
+    const [dadosArma, setDadosArma] = useState({
+        fabricante: '',
+        modelo: '',
+        calibre: '',
+        tipo: ''
+    });
 
+    // Fetch dados pessoais ao carregar o componente
     useEffect(() => {
         const token = localStorage.getItem('jwtToken');
-    
-        axios.get('http://localhost:3000/sigap/api/dadosPolicial', {
+
+        axios.get('http://localhost:3000/sigap/api/dadosPolicial/', {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -21,6 +28,34 @@ const SolicitarC = () => {
         })
         .catch(error => console.error('Erro ao buscar dados pessoais:', error));
     }, []);
+
+    // Manipular mudanças no formulário de Dados da Arma
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setDadosArma(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    // Função para enviar dados da arma para o backend (api de teste para CRUD)
+    const handleSave = () => {
+        const token = localStorage.getItem('jwtToken');
+        
+        axios.post('http://localhost:5000', dadosArma, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        .then(response => {
+            console.log('Solicitação de compra salva:', response.data);
+            alert("Solicitação de compra enviada com sucesso!");
+        })
+        .catch(error => {
+            console.error('Erro ao salvar solicitação de compra:', error);
+            alert("Erro ao enviar a solicitação de compra.");
+        });
+    };
 
     return (
         <div>
@@ -49,36 +84,12 @@ const SolicitarC = () => {
                             Anexar Documentos
                         </button>
                     </div>
-    
+                    
                     <div className="tab-content">
                         {activeTab === 'Orientações' && (
                             <div className="orientacoes">
                                 <h4>DOCUMENTOS NECESSÁRIOS PARA A AQUISIÇÃO DE MATERIAL BÉLICO DE USO PARTICULAR</h4>
-                                <ul>
-                                    <li>Requerimento para Aquisição de Material Bélico de Uso Particular preenchido e assinado;</li>
-                                    <li>(Anexo “C”) - Calibre Permitido ou (Anexo “C1”) - Calibre Restrito;</li>
-                                    <li>Cópia da identidade militar;</li>
-                                    <li>Cópia do comprovante de residência;</li>
-                                    <li>Laudo de aptidão psicológica apenas para inativos;</li>
-                                    <li>Declaração preenchida (Anexo “G” );</li>
-                                    <li>Comprovante de pagamento da Guia de Recolhimento da União – GRU;</li>
-                                    <li>Certidões negativas (Justiça Estadual, Justiça Federal e DJD);</li>
-                                </ul>
-                                <p><strong>[1]</strong> Acesse o site <a href="http://consulta.tesouro.fazenda.gov.br/gru_novosite/gru_simples.asp" target="_blank" rel="noopener noreferrer">consulta.tesouro.fazenda.gov.br</a> e preencha os campos indicados com as especificações:
-                                <ul>
-                                    <li>Unidade Gestora: 167086;</li>
-                                    <li> Gestão: 00001 - Tesouro Nacional; </li>
-                                    <li>Nome da Unidade: Fundo do Exército;</li>
-                                    <li>Código de Recolhimento: 11300-0 – Taxa Fisc. Produtos Controlados Exército;</li>
-                                    <li>Na página seguinte, Preencha:</li>
-                                        <ol>
-                                            <li>Número de referência: 20741; </li>
-                                            <li>Nome Completo;</li>
-                                            <li>CPF do Interessado;</li>
-                                            <li>Anexe o Comprovante do Pagamento *</li> ler portaria e entender onde estão os dados para o pagamento 
-                                        </ol>
-                                </ul>
-                                </p>
+                                {/* ...Conteúdo da aba Orientações... PEGAREMOS DO BANCO */}
                             </div>
                         )}
                         
@@ -100,21 +111,41 @@ const SolicitarC = () => {
                             </div>
                         )}
                         
-                        {activeTab === 'Dados da Arma' && <p>Conteúdo de Dados da Arma</p>}
+                        {activeTab === 'Dados da Arma' && (
+                            <div className="dados-arma">
+                                <h4>Preencha os Dados da Arma:</h4>
+                                <div>
+                                    <label>Fabricante:</label>
+                                    <input type="text" name="fabricante" value={dadosArma.fabricante} onChange={handleChange} />
+                                </div>
+                                <div>
+                                    <label>Modelo:</label>
+                                    <input type="text" name="modelo" value={dadosArma.modelo} onChange={handleChange} />
+                                </div>
+                                <div>
+                                    <label>Calibre:</label>
+                                    <input type="text" name="calibre" value={dadosArma.calibre} onChange={handleChange} />
+                                </div>
+                                <div>
+                                    <label>Tipo:</label>
+                                    <input type="text" name="tipo" value={dadosArma.tipo} onChange={handleChange} />
+                                </div>
+                            </div>
+                        )}
+                        
                         {activeTab === 'Anexar Documentos' && <p>Conteúdo de Anexar Documentos</p>}
                     </div>
                 
                     <div className="button-container">  
-                        <button className="clear-button">Limpar Formulário</button>
-                        <button className="save-button">
+                        <button className="clear-button" onClick={() => setDadosArma({ fabricante: '', modelo: '', calibre: '', tipo: '' })}>Limpar Formulário</button>
+                        <button className="save-button" onClick={handleSave}>
                             <i className="fas fa-save"></i> Salvar
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-    );    
+    );
 };
-                         
-export default SolicitarC;
 
+export default SolicitarC;
