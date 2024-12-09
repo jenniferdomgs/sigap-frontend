@@ -42,7 +42,7 @@ const SolicitarC = () => {
     const handleSave = () => {
         const token = localStorage.getItem('jwtToken');
         
-        axios.post('http://localhost:5000', dadosArma, {
+        axios.post('http://localhost:3000/sigap/api/', dadosArma, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -133,7 +133,35 @@ const SolicitarC = () => {
                             </div>
                         )}
                         
-                        {activeTab === 'Anexar Documentos' && <p>Conteúdo de Anexar Documentos</p>}
+                        {activeTab === 'Anexar Documentos' && // concluir forms 
+                            <div className="anexarD">
+                                <h4>ANEXE OS DOCUMENTOS NECESSÁRIOS PARA A AQUISIÇÃO DE MATERIAL BÉLICO</h4>
+                                <div>
+                                    <label>Requerimento para Aquisição de Material Bélico de Uso Particular preenchido e assinado:</label>
+                                    
+                                </div>
+                                <div>
+                                    <label>(Anexo “C”) - Calibre Permitido ou (Anexo “C1”) - Calibre Restrito:</label>
+                                    
+                                </div>
+                                <div>
+                                    <label>Cópia da identidade militar:</label>
+                                    
+                                </div>
+                                <div>
+                                    <label>Cópia do comprovante de residência:</label>
+                                    
+                                </div>
+                                <div>
+                                    <label>Laudo de aptidão psicológica apenas para inativos:</label>
+                                    
+                                </div>
+                                <div>
+                                    <label>Declaração preenchida (Anexo “G” ):</label>
+                                    
+                                </div>
+
+                            </div>}
                     </div>
                 
                     <div className="button-container">  
